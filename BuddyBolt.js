@@ -66,10 +66,11 @@ displayBuddyMessage = function(transcript) {
 
 sendToOpenAI = function(transcript) {
   // Replace YOUR_API_KEY with your actual OpenAI API key
-  const apiKey = 'api_key';
+  const apiKey = document.getElementById('apiKey').value;
+  console.log(apiKey);
 
   // Set up the API endpoint URL
-  const apiUrl = 'https://api.openai.com/v1/engine/davinci-codex/completions';
+  const apiUrl = 'https://api.openai.com/v1/completions';
 
   // Set up the request headers
   const headers = {
@@ -79,10 +80,9 @@ sendToOpenAI = function(transcript) {
 
   // Set up the request data
   const requestData = {
-    'prompt': transcript,
-    'max_tokens': 5,
-    'n': 1,
-    'stop': ''
+    "model": "davinci",
+    "prompt": transcript,
+    "max_tokens": 16
   };
 
   // Make the API request using fetch
@@ -94,7 +94,7 @@ sendToOpenAI = function(transcript) {
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    // Do something with the response data here
+    displayBuddyMessage(data.choices[0].text);
   })
   .catch(error => console.error(error));
 }
