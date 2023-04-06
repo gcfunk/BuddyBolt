@@ -40,6 +40,30 @@ displayUserMessage = function(transcript) {
   chatBox.appendChild(messageElement);
 }
 
+displayBuddyMessage = function(transcript) {
+  // Get the chat box element
+  const chatBox = document.querySelector('.chat');
+
+  // Create the user message element
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('message');
+  messageElement.classList.add('buddy-message');
+
+  const avatarElement = document.createElement('img');
+  avatarElement.src = "BuddyBolt.png";
+  avatarElement.alt = "Buddy Avatar";
+  avatarElement.classList.add('avatar');
+  messageElement.appendChild(avatarElement);
+
+  const messageTextElement = document.createElement('div');
+  messageTextElement.classList.add('message-text');
+  messageTextElement.innerText = transcript;
+  messageElement.appendChild(messageTextElement);
+
+  // Add the message element to the chat box
+  chatBox.appendChild(messageElement);
+}
+
 sendToOpenAI = function(transcript) {
   // Replace YOUR_API_KEY with your actual OpenAI API key
   const apiKey = 'api_key';
@@ -76,7 +100,10 @@ sendToOpenAI = function(transcript) {
 }
 
 sendClicked = function() {
-    console.log('send clicked');
-    document.getElementById('listening').style.display = 'inline-block';
-    recognition.start();
+  document.getElementById('listening').style.display = 'inline-block';
+  recognition.start();
 }
+
+window.onload = function() {
+  displayBuddyMessage("Hi there! How can I assist you today?");
+};
