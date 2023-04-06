@@ -14,3 +14,5 @@ Close enough, I used GIMP to strip out the text at the bottom
 
 
 ** use existing workflow - git, every new iteration is a commit. 
+
+on windows: chrome.exe --disable-web-security --user-data-dir="temp"

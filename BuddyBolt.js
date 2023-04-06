@@ -100,10 +100,12 @@ sendToOpenAI = function(transcript) {
 }
 
 sendClicked = function() {
+  sessionStorage.setItem('openaiAPIkey', document.getElementById('apiKey').value);
   document.getElementById('listening').style.display = 'inline-block';
   recognition.start();
 }
 
 window.onload = function() {
+  document.getElementById('apiKey').value = sessionStorage.getItem('openaiAPIkey');
   displayBuddyMessage("Hi there! How can I assist you today?");
 };
