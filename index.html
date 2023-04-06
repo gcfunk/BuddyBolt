@@ -33,60 +33,54 @@
         padding: 20px;
       }
 
-      .chat-box {
+      .chat {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .message {
+        display: flex;
+        margin-bottom: 10px;
+      }
+
+      .avatar {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .message-text {
         background-color: #fff;
         border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        overflow: auto;
-        max-height: 500px;
         padding: 10px;
-        margin-bottom: 20px;
+        max-width: 70%;
       }
 
-      .input-box {
+      .user-message {
+        align-self: flex-end;
+      }
+
+      .user-message .message-text {
+        background-color: #dcf8c6;
+      }
+
+      .buddy-message .message-text {
         background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        padding: 10px;
       }
 
-      .input-box input[type="text"] {
-        width: 100%;
-        border: none;
-        outline: none;
-        font-size: 16px;
-        padding: 5px;
-      }
-
-      .send-button {
-        background-color: #3b82f6;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
+      .buddy-message .avatar {
+        order: 2;
+        margin-right: 0;
         margin-left: 10px;
       }
 
-      .send-button:hover {
-        background-color: #1f4feb;
-      }
-
-      @media only screen and (max-width: 600px) {
-        .container {
-          padding: 10px;
-        }
-        .chat-box, .input-box {
-          border-radius: 0;
-          box-shadow: none;
-        }
-        .chat-box {
-          margin-bottom: 10px;
-        }
-        .input-box {
-          border-top: 1px solid #ddd;
-        }
+      h1 {
+        text-align: center;
       }
     </style>
   </head>
@@ -101,10 +95,27 @@
           <p>Your helpful robot assistant</p>
         </div>
       </div>
-      <div class="chat-box" id="output"></div>
-      <div class="input-box">
-        <input type="text" placeholder="Type your message here...">
-        <button class="send-button" onclick="sendClicked()">Click to speak</button>
+      <h1>BuddyBolt Chat</h1>
+      <div class="chat">
+        <div class="message buddy-message">
+          <img src="BuddyBolt.png" alt="BuddyBolt Avatar" class="avatar">
+          <div class="message-text">
+            Hi there! How can I assist you today?
+          </div>
+        </div>
+        <div class="message user-message">
+          <div class="message-text">
+            Hey, I was wondering if you could help me find a good restaurant in the area?
+          </div>
+          <img src="user-avatar.png" alt="User Avatar" class="avatar">
+        </div>
+        <div class="message buddy-message">
+          <img src="BuddyBolt.png" alt="BuddyBolt Avatar" class="avatar">
+          <div class="message-text">
+            Sure thing! What type of cuisine are you in the mood for?
+          </div>
+        </div>
+        <!-- more messages here -->
       </div>
     </div>
   </body>
