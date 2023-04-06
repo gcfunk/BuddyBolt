@@ -11,3 +11,6 @@ Second try:
 Close enough, I used GIMP to strip out the text at the bottom
 
 [TODO: put in pictures]
+
+
+** use existing workflow - git, every new iteration is a commit. 
