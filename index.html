@@ -82,6 +82,36 @@
       h1 {
         text-align: center;
       }
+
+      .input-box {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        padding: 10px;
+      }
+
+      .input-box input[type="text"] {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        padding: 5px;
+      }
+
+      .send-button {
+        background-color: #3b82f6;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .send-button:hover {
+        background-color: #1f4feb;
+      }
     </style>
   </head>
   <body>
@@ -116,6 +146,10 @@
           </div>
         </div>
         <!-- more messages here -->
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Type your message here...">
+        <button class="send-button" onclick="sendClicked()">Click to speak</button>
       </div>
     </div>
   </body>
